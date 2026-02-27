@@ -25,10 +25,10 @@ pipeline {
         }
            stage('Docker Build and Push') {
             steps {
-              withDockerRegistry([credentialsId: "docker-hub", url: "https://hub.docker.com/"]) {
+              withDockerRegistry([credentialsId: "docker-hub", url: "https://docker.io/"]) {
                 sh 'printenv'
-                sh 'docker build -t https://hub.docker.com/repositories/sankalpak/numeric-app:""$GIT_COMMIT"" .'
-                sh 'docker push https://hub.docker.com/repositories/sankalpak/numeric-app:""$GIT_COMMIT""'
+                sh 'docker build -t https://docker.io/repositories/sankalpak/numeric-app:""$GIT_COMMIT"" .'
+                sh 'docker push https://docker.io/repositories/sankalpak/numeric-app:""$GIT_COMMIT""'
             }
          }
       }
